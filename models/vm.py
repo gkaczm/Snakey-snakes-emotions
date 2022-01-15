@@ -43,9 +43,9 @@ def preprocess(sentence):
 
 
 def classify(sentence: str):
-    with open('vectorizer.pkl', 'rb') as fid:
+    with open('models/vectorizer.pkl', 'rb') as fid:
         vectorizer = cPickle.load(fid)
-    with open('svm_classifier.pkl', 'rb') as fid:
+    with open('models/svm_classifier.pkl', 'rb') as fid:
         svm_model = cPickle.load(fid)
     sentence = preprocess(sentence)
     print(sentence)

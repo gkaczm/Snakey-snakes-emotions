@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 
 from google.google_handler import get_emails
+from models.vm import classify
 
 app = Flask(__name__)
 
@@ -10,8 +11,7 @@ def mainpage():  # put application's code here
     if request.method == "POST":
         message = request.form.get("message")
         # TODO get solution response: 0 or 1
-        response = 0
-        print(message)
+        response = classify(message)
         if response == 1 or response == 0:
             if response == 1:
                 color = "red"
@@ -34,22 +34,15 @@ def classfmail():
         try:
             email = get_emails(index)
             list = email["from"].split()
-            print("c")
             address = list[-1]
-            print("c")
             address = address[:4] + (len(address)-13)*"*" + address[-13:]
-            print("c")
             list[-1] = address
-            print("c")
             email["from"] = " ".join(list)
-            print("c")
         except Exception as e:
             print(e)
             suggestion = "Please make sure there is enough emails"
             return render_template("apology.html", suggestion=suggestion)
-        # TODO fetch email dict
-        # TODO get solution response: 0 or 1
-        response = 0
+        response = classify(email["message"])
         if response == 1 or response == 0:
             if response == 1:
                 color = "red"
