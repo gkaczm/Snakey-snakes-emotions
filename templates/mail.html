@@ -8,6 +8,7 @@
     <h4 class="h4" id="{{ col }}">This email is {{ res }}classified as cyber bullying.</h4>
     <p class="lead">The email with subject <b>{{ email.subject }}</b>, from <b>{{ email.from }}</b>:
         <br/>&nbsp;&nbsp;&nbsp;<b><i>{{ email.message }}</i></b><br/> is {{ res }} considered to be violent and should {{ res }}be reported.</p>
+    <br>
     <form action="/mail" method="post">
         <div class="col text-center">
             <input type="hidden" id="index" name="index" value="{{ ind }}">
