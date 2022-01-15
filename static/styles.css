@@ -5,7 +5,7 @@ nav .navbar-brand
 }
 
 body {
-    background-color: #6f919b;
+    background-color: #5D90BA;
 }
 
 #red {
@@ -16,11 +16,15 @@ body {
     color: darkgreen;
 }
 #other {
-    background-color: darkslategrey;
-    border-color: darkslategrey;
+    background-color: #B27C66;
+    border-color: #B27C66;
+}
+#other1 {
+    background-color: #B27C66;
+    border-color: #B27C66;
 }
 
 #backk {
-    background-color: #d3dbde;
+    background-color: #E6E6E6;
 }
 
