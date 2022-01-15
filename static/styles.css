@@ -1,0 +1,24 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+body {
+    background-color: #6f919b;
+}
+
+#red {
+    color: darkred;
+}
+
+#green {
+    color: darkgreen;
+}
+#other {
+    background-color: darkslategrey;
+    border-color: darkslategrey;
+}
+
+
+
