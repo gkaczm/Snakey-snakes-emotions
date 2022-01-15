@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 
+from google.google_handler import get_emails
+
 app = Flask(__name__)
 
 
@@ -8,7 +10,7 @@ def mainpage():  # put application's code here
     if request.method == "POST":
         message = request.form.get("message")
         # TODO get solution response: 0 or 1
-        response = 1
+        response = 0
         print(message)
         if response == 1 or response == 0:
             if response == 1:
@@ -28,14 +30,14 @@ def mainpage():  # put application's code here
 def classfmail():
     if request.method == "POST":
         index = int(request.form.get("index"))
-        email = {
-            "subject": "Dupa",
-            "from": "Baran",
-            "message": "chuj ci w ogon pajacu"
-        }
+        try:
+            email = get_emails(index)
+        except:
+            suggestion = "Please make sure there is enough emails"
+            return render_template("apology.html", suggestion=suggestion)
         # TODO fetch email dict
         # TODO get solution response: 0 or 1
-        response = 1
+        response = 0
         if response == 1 or response == 0:
             if response == 1:
                 color = "red"
