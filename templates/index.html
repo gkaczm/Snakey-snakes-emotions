@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Start detecting
+{% endblock %}
+
+{% block body %}
+<form action="/" method="post">
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name=message placeholder="Input plain text message..." type="text"/>
+    </div>
+    <div class="col text-center">
+        <button class="btn btn-primary" type="submit">Load</button>
+    </div>
+</form>
+    <br/>
+<form action="/mail" method="post">
+    <div class="col text-center">
+        <input type="hidden" id="index" name="index" value="0">
+        <button id="other" class="btn btn-primary" type="submit" name="button" value="0">Load sample emails from Gmail</button>
+    </div>
+</form>
+{% endblock %}
